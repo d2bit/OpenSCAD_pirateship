@@ -75,7 +75,7 @@ module main_mast(mh)
   rigging(mh);
 }
 
-module back_mast(mh)
+module mizzen_mast(mh)
 {
   x_position = mh / 5 * MIDDLE_TO_BACK;
   heigh_resizer = 4 / 6;
@@ -92,7 +92,7 @@ module sails(mh)
 
     fore_mast(mh);
     main_mast(mh);
-    back_mast(mh);
+    mizzen_mast(mh);
 
     translate([0,mh*15/32,mh*8/32])
       rotate([205,0,0])
