@@ -65,14 +65,29 @@ module sails(mh)
 {
   translate([0,0,mh*-4/62])
   {
-    translate([0,0,mh*28/32]) cylinder(r1=mh*2/64,r2=mh*2.5/64,h=mh*3/64,$fn=fn/4,center=true);
-    translate([0,0,mh*53/64]) cylinder(r1=th/2,r2=mh*2/64,h=mh*3/64,$fn=fn/4,center=true);
-    translate([0,mh/4,0]) rigging(mh*5/6);
-    translate([0,0,0]) rigging(mh);
-    translate([0,-mh/5,0]) rigging(mh*4/6);
-    translate([0,mh*15/32,mh*8/32]) rotate([205,0,0]) scale([1,1,2]) rotate([0,90,0])
-      cylinder(r=mh/5,h=th,$fn=3,center=true);
-    translate([0,mh*-1/32,-mh*1/32]) cube([th,mh*14/16,mh/8],center=true);
+    translate([0,0,mh*28/32])
+      cylinder(r1=mh*2/64,r2=mh*2.5/64,h=mh*3/64,$fn=fn/4,center=true);
+
+    translate([0,0,mh*53/64])
+      cylinder(r1=th/2,r2=mh*2/64,h=mh*3/64,$fn=fn/4,center=true);
+
+    translate([0,mh/4,0])
+      rigging(mh*5/6);
+
+    translate([0,0,0])
+      rigging(mh);
+
+    translate([0,-mh/5,0])
+      rigging(mh*4/6);
+
+    translate([0,mh*15/32,mh*8/32])
+      rotate([205,0,0])
+        scale([1,1,2])
+          rotate([0,90,0])
+            cylinder(r=mh/5,h=th,$fn=3,center=true);
+
+    translate([0,mh*-1/32,-mh*1/32])
+      cube([th,mh*14/16,mh/8],center=true);
   }
 }
 
