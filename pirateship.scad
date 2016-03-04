@@ -85,7 +85,8 @@ module mizzen_mast(mh)
 
 module crews_nest(mh)
 {
-  translate([0,0,mh*28/32])
+  z_position = mh * 28 / 32;
+  translate([0, 0, z_position])
     cylinder(r1=mh*2/64,r2=mh*2.5/64,h=mh*3/64,$fn=fn/4,center=true);
 }
 
