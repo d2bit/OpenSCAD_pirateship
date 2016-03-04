@@ -71,8 +71,7 @@ module front_mast(mh)
 
 module middle_mast(mh)
 {
-  translate([0,0,0])
-    rigging(mh);
+  rigging(mh);
 }
 
 module sails(mh)
