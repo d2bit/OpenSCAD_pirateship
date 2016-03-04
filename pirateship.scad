@@ -74,6 +74,12 @@ module middle_mast(mh)
   rigging(mh);
 }
 
+module back_mast(mh)
+{
+  translate([0,-mh/5,0])
+    rigging(mh*4/6);
+}
+
 module sails(mh)
 {
   translate([0,0,mh*-4/62])
@@ -83,9 +89,7 @@ module sails(mh)
 
     front_mast(mh);
     middle_mast(mh);
-
-    translate([0,-mh/5,0])
-      rigging(mh*4/6);
+    back_mast(mh);
 
     translate([0,mh*15/32,mh*8/32])
       rotate([205,0,0])
