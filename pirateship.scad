@@ -70,7 +70,7 @@ module front_mast(mh)
     rigging(mh * heigh_resizer);
 }
 
-module middle_mast(mh)
+module main_mast(mh)
 {
   rigging(mh);
 }
@@ -91,7 +91,7 @@ module sails(mh)
       cylinder(r1=mh*2/64,r2=mh*2.5/64,h=mh*3/64,$fn=fn/4,center=true);
 
     front_mast(mh);
-    middle_mast(mh);
+    main_mast(mh);
     back_mast(mh);
 
     translate([0,mh*15/32,mh*8/32])
