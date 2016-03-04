@@ -62,7 +62,7 @@ module hull(hl)
   }
 }
 
-module front_mast(mh)
+module fore_mast(mh)
 {
   x_position = mh / 4;
   heigh_resizer = 5 / 6;
@@ -90,7 +90,7 @@ module sails(mh)
     translate([0,0,mh*28/32])
       cylinder(r1=mh*2/64,r2=mh*2.5/64,h=mh*3/64,$fn=fn/4,center=true);
 
-    front_mast(mh);
+    fore_mast(mh);
     main_mast(mh);
     back_mast(mh);
 
