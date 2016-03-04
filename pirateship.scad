@@ -1,3 +1,4 @@
+MIDDLE_TO_BACK = -1;
 th = 0.6;
 shipscale=60;
 fn=64;
@@ -76,7 +77,7 @@ module middle_mast(mh)
 
 module back_mast(mh)
 {
-  x_position = -mh / 5;
+  x_position = mh / 5 * MIDDLE_TO_BACK;
   translate([0, x_position, 0])
     rigging(mh*4/6);
 }
