@@ -72,6 +72,7 @@ module fore_mast(mh)
 
 module main_mast(mh)
 {
+  crews_nest(mh);
   rigging(mh);
 }
 
@@ -97,8 +98,6 @@ module sails(mh)
 {
   translate([0,0,mh*-4/62])
   {
-    crews_nest(mh);
-
     fore_mast(mh);
     main_mast(mh);
     mizzen_mast(mh);
