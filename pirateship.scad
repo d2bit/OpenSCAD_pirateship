@@ -83,12 +83,17 @@ module mizzen_mast(mh)
     rigging(mh * heigh_resizer);
 }
 
+module crews_nest(mh)
+{
+  translate([0,0,mh*28/32])
+    cylinder(r1=mh*2/64,r2=mh*2.5/64,h=mh*3/64,$fn=fn/4,center=true);
+}
+
 module sails(mh)
 {
   translate([0,0,mh*-4/62])
   {
-    translate([0,0,mh*28/32])
-      cylinder(r1=mh*2/64,r2=mh*2.5/64,h=mh*3/64,$fn=fn/4,center=true);
+    crews_nest(mh);
 
     fore_mast(mh);
     main_mast(mh);
