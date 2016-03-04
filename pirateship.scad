@@ -94,6 +94,15 @@ module crews_nest(mh)
     cylinder(r1=nest_base_radius, r2=nest_top_radius, h=nest_height, $fn=fn/4, center=true);
 }
 
+module bowsprit_sail(mh)
+{
+  translate([0,mh*15/32,mh*8/32])
+    rotate([205,0,0])
+      scale([1,1,2])
+        rotate([0,90,0])
+          cylinder(r=mh/5,h=th,$fn=3,center=true);
+}
+
 module sails(mh)
 {
   translate([0,0,mh*-4/62])
@@ -102,11 +111,7 @@ module sails(mh)
     main_mast(mh);
     mizzen_mast(mh);
 
-    translate([0,mh*15/32,mh*8/32])
-      rotate([205,0,0])
-        scale([1,1,2])
-          rotate([0,90,0])
-            cylinder(r=mh/5,h=th,$fn=3,center=true);
+    bowsprit_sail(mh);
 
     translate([0,mh*-1/32,-mh*1/32])
       cube([th,mh*14/16,mh/8],center=true);
