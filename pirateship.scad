@@ -78,8 +78,9 @@ module middle_mast(mh)
 module back_mast(mh)
 {
   x_position = mh / 5 * MIDDLE_TO_BACK;
+  heigh_resizer = 4 / 6;
   translate([0, x_position, 0])
-    rigging(mh*4/6);
+    rigging(mh * heigh_resizer);
 }
 
 module sails(mh)
