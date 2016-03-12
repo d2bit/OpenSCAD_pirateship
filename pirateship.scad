@@ -8,7 +8,7 @@ ship();
 module ship()
 {
   sails(SIZE);
-  hull(SIZE);
+  hull();
   rudder(SIZE);
   bowsprit(SIZE);
   % translate([0,0,SIZE/4]) cube(SIZE, center=true);
@@ -74,19 +74,19 @@ module hull_stern(hl)
 }
 
 
-module hull(hl)
+module hull()
 {
-  position = [0, hl * -1 / 32, hl * -3 / 32];
+  position = [0, SIZE * -1 / 32, SIZE * -3 / 32];
 
   difference()
   {
     translate(position)
       union()
       {
-        underwater_hull(hl);
-        deck(hl);
+        underwater_hull(SIZE);
+        deck(SIZE);
       }
-      hull_stern(hl);
+      hull_stern(SIZE);
   }
 }
 
