@@ -90,56 +90,56 @@ module hull()
   }
 }
 
-module fore_mast(mh)
+module fore_mast()
 {
-  x_position = mh / 4;
+  x_position = SIZE / 4;
   heigh_resizer = 5 / 6;
   translate([0, x_position, 0])
-    rigging(mh * heigh_resizer);
+    rigging(SIZE * heigh_resizer);
 }
 
-module main_mast(mh)
+module main_mast()
 {
-  crews_nest(mh);
-  rigging(mh);
+  crews_nest(SIZE);
+  rigging(SIZE);
 }
 
-module mizzen_mast(mh)
+module mizzen_mast()
 {
-  x_position = mh / 5 * MIDDLE_TO_BACK;
+  x_position = SIZE / 5 * MIDDLE_TO_BACK;
   heigh_resizer = 4 / 6;
   translate([0, x_position, 0])
-    rigging(mh * heigh_resizer);
+    rigging(SIZE * heigh_resizer);
 }
 
-module crews_nest(mh)
+module crews_nest()
 {
-  z_position = mh * 28 / 32;
-  nest_base_radius = mh * 2 / 64;
-  nest_top_radius = mh * 2.5 / 64;
-  nest_height = mh * 3 / 64;
+  z_position = SIZE * 28 / 32;
+  nest_base_radius = SIZE * 2 / 64;
+  nest_top_radius = SIZE * 2.5 / 64;
+  nest_height = SIZE * 3 / 64;
   translate([0, 0, z_position])
     cylinder(r1=nest_base_radius, r2=nest_top_radius, h=nest_height, $fn=fn/4, center=true);
 }
 
-module bowsprit_sail(mh)
+module bowsprit_sail()
 {
-  translate([0,mh*15/32,mh*8/32])
+  translate([0,SIZE*15/32,SIZE*8/32])
     rotate([205,0,0])
       scale([1,1,2])
         rotate([0,90,0])
-          cylinder(r=mh/5,h=th,$fn=3,center=true);
+          cylinder(r=SIZE/5,h=th,$fn=3,center=true);
 }
 
 module sails()
 {
   translate([0,0,SIZE*-4/62])
   {
-    fore_mast(SIZE);
-    main_mast(SIZE);
-    mizzen_mast(SIZE);
+    fore_mast();
+    main_mast();
+    mizzen_mast();
 
-    bowsprit_sail(SIZE);
+    bowsprit_sail();
 
     translate([0,SIZE*-1/32,-SIZE*1/32])
       cube([th,SIZE*14/16,SIZE/8],center=true);
