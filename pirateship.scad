@@ -10,7 +10,7 @@ module ship()
   sails();
   hull();
   rudder();
-  bowsprit(SIZE);
+  bowsprit();
   % translate([0,0,SIZE/4]) cube(SIZE, center=true);
 }
 
@@ -27,13 +27,18 @@ module rudder()
   }
 }
 
-module bowsprit(bs)
+module bowsprit()
 {
-  translate([0,bs*37/64,bs*3/64]) rotate([290,0,0]) intersection()
-  {
-    scale([0.5,1,1]) cylinder(r1=bs*8/64,r2=th,h=bs/3,$fn=fn/4,center=true);
-    translate([0,bs/2,0]) cube(bs,center=true);
-  }
+  translate([0,SIZE*37/64,SIZE*3/64])
+    rotate([290,0,0])
+      intersection()
+      {
+        scale([0.5,1,1])
+          cylinder(r1=SIZE*8/64,r2=th,h=SIZE/3,$fn=fn/4,center=true);
+
+        translate([0,SIZE/2,0])
+          cube(SIZE,center=true);
+      }
 }
 
 module underwater_hull(hl)
