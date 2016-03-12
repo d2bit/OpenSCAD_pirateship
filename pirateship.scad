@@ -57,6 +57,12 @@ module stern_castle()
     cube([SIZE, SIZE / 4, SIZE / 4], center=true);
 }
 
+module fore_castle()
+{
+  translate([0, SIZE * 14 / 32, SIZE * -2 / 32])
+    cube([SIZE, SIZE / 4, SIZE / 4], center=true);
+}
+
 module deck()
 {
   difference()
@@ -71,9 +77,8 @@ module deck()
           cylinder(r=(SIZE/4) -th, h=SIZE/6, $fn=fn,center=true);
 
       stern_castle();
+      fore_castle();
 
-      translate([0,SIZE*14/32,-SIZE*2/32])
-        cube([SIZE,SIZE/4,SIZE/4],center=true);
       translate([0,-SIZE*15/32,SIZE/32])
         cube([SIZE,SIZE/8,SIZE/2],center=true);
     }
