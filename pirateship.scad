@@ -1,17 +1,17 @@
 MIDDLE_TO_BACK = -1;
+SIZE = 60;
 th = 0.6;
-shipscale=60;
 fn=64;
 
 ship();
 
-module ship(size=shipscale)
+module ship()
 {
-  sails(size);
-  hull(size);
-  rudder(size);
-  bowsprit(size);
-  % translate([0,0,size/4]) cube(size, center=true);
+  sails(SIZE);
+  hull(SIZE);
+  rudder(SIZE);
+  bowsprit(SIZE);
+  % translate([0,0,SIZE/4]) cube(SIZE, center=true);
 }
 
 module rudder(rh)
