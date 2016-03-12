@@ -48,6 +48,15 @@ module underwater_hull()
       cylinder(r1=SIZE/6, r2=SIZE/4, h=SIZE/6, $fn=fn, center=true);
 }
 
+module stern_castle()
+{
+  translate([0 , SIZE * -13 / 32, SIZE / 32])
+    cube([SIZE, SIZE / 4, SIZE / 4], center=true);
+
+  translate([0, SIZE * -12 / 32, SIZE * -2 / 32])
+    cube([SIZE, SIZE / 4, SIZE / 4], center=true);
+}
+
 module deck()
 {
   difference()
@@ -60,10 +69,9 @@ module deck()
       scale([0.7,2.1,1])
         translate([0,0,SIZE/12+th/4])
           cylinder(r=(SIZE/4) -th, h=SIZE/6, $fn=fn,center=true);
-      translate([0,-SIZE*13/32,SIZE/32])
-        cube([SIZE,SIZE/4,SIZE/4],center=true);
-      translate([0,-SIZE*12/32,-SIZE*2/32])
-        cube([SIZE,SIZE/4,SIZE/4],center=true);
+
+      stern_castle();
+
       translate([0,SIZE*14/32,-SIZE*2/32])
         cube([SIZE,SIZE/4,SIZE/4],center=true);
       translate([0,-SIZE*15/32,SIZE/32])
