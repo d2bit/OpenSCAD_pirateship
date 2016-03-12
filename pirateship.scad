@@ -7,7 +7,7 @@ ship();
 
 module ship()
 {
-  sails(SIZE);
+  sails();
   hull();
   rudder(SIZE);
   bowsprit(SIZE);
@@ -131,18 +131,18 @@ module bowsprit_sail(mh)
           cylinder(r=mh/5,h=th,$fn=3,center=true);
 }
 
-module sails(mh)
+module sails()
 {
-  translate([0,0,mh*-4/62])
+  translate([0,0,SIZE*-4/62])
   {
-    fore_mast(mh);
-    main_mast(mh);
-    mizzen_mast(mh);
+    fore_mast(SIZE);
+    main_mast(SIZE);
+    mizzen_mast(SIZE);
 
-    bowsprit_sail(mh);
+    bowsprit_sail(SIZE);
 
-    translate([0,mh*-1/32,-mh*1/32])
-      cube([th,mh*14/16,mh/8],center=true);
+    translate([0,SIZE*-1/32,-SIZE*1/32])
+      cube([th,SIZE*14/16,SIZE/8],center=true);
   }
 }
 
