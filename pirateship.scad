@@ -9,17 +9,21 @@ module ship()
 {
   sails();
   hull();
-  rudder(SIZE);
+  rudder();
   bowsprit(SIZE);
   % translate([0,0,SIZE/4]) cube(SIZE, center=true);
 }
 
-module rudder(rh)
+module rudder()
 {
   intersection()
   {
-    translate([0,rh*-25/64,rh*-10/64]) cube([th,rh*5/32,rh*13/64], center=true);
-    translate([0,rh*-33/64,rh*-1/64]) rotate([0,90,0]) cylinder(r=rh*8/32,h=th,$fn=fn);
+    translate([0,SIZE*-25/64,SIZE*-10/64])
+      cube([th,SIZE*5/32,SIZE*13/64], center=true);
+
+    translate([0,SIZE*-33/64,SIZE*-1/64])
+      rotate([0,90,0])
+        cylinder(r=SIZE*8/32,h=th,$fn=fn);
   }
 }
 
