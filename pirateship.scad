@@ -41,45 +41,45 @@ module bowsprit()
       }
 }
 
-module underwater_hull(hl)
+module underwater_hull()
 {
   scale([0.7, 2.1, 1])
-    translate([0, 0, -hl / 12])
-      cylinder(r1=hl/6, r2=hl/4, h=hl/6, $fn=fn, center=true);
+    translate([0, 0, -SIZE / 12])
+      cylinder(r1=SIZE/6, r2=SIZE/4, h=SIZE/6, $fn=fn, center=true);
 }
 
-module deck(hl)
+module deck()
 {
   difference()
   {
     scale([0.7,2.1,1])
-      translate([0,0,hl/12])
-        cylinder(r=hl/4, h=hl/6, $fn=fn,center=true);
+      translate([0,0,SIZE/12])
+        cylinder(r=SIZE/4, h=SIZE/6, $fn=fn,center=true);
     difference()
     {
       scale([0.7,2.1,1])
-        translate([0,0,hl/12+th/4])
-          cylinder(r=(hl/4) -th, h=hl/6, $fn=fn,center=true);
-      translate([0,-hl*13/32,hl/32])
-        cube([hl,hl/4,hl/4],center=true);
-      translate([0,-hl*12/32,-hl*2/32])
-        cube([hl,hl/4,hl/4],center=true);
-      translate([0,hl*14/32,-hl*2/32])
-        cube([hl,hl/4,hl/4],center=true);
-      translate([0,-hl*15/32,hl/32])
-        cube([hl,hl/8,hl/2],center=true);
+        translate([0,0,SIZE/12+th/4])
+          cylinder(r=(SIZE/4) -th, h=SIZE/6, $fn=fn,center=true);
+      translate([0,-SIZE*13/32,SIZE/32])
+        cube([SIZE,SIZE/4,SIZE/4],center=true);
+      translate([0,-SIZE*12/32,-SIZE*2/32])
+        cube([SIZE,SIZE/4,SIZE/4],center=true);
+      translate([0,SIZE*14/32,-SIZE*2/32])
+        cube([SIZE,SIZE/4,SIZE/4],center=true);
+      translate([0,-SIZE*15/32,SIZE/32])
+        cube([SIZE,SIZE/8,SIZE/2],center=true);
     }
-    translate([0,hl/4.5,hl/1.7])
-      cube(hl, center=true);
-    translate([0,hl*1/32,hl*9/32])
-      cube(hl/2, center=true);
+    translate([0,SIZE/4.5,SIZE/1.7])
+      cube(SIZE, center=true);
+    translate([0,SIZE*1/32,SIZE*9/32])
+      cube(SIZE/2, center=true);
   }
 }
 
-module hull_stern(hl)
+module hull_stern()
 {
-  translate([0, hl * -17 / 32, hl / 32])
-    cube([hl, hl / 8, hl / 2], center=true);
+  translate([0, SIZE * -17 / 32, SIZE / 32])
+    cube([SIZE, SIZE / 8, SIZE / 2], center=true);
 }
 
 
@@ -92,10 +92,10 @@ module hull()
     translate(position)
       union()
       {
-        underwater_hull(SIZE);
-        deck(SIZE);
+        underwater_hull();
+        deck();
       }
-      hull_stern(SIZE);
+      hull_stern();
   }
 }
 
@@ -109,7 +109,7 @@ module fore_mast()
 
 module main_mast()
 {
-  crews_nest(SIZE);
+  crews_nest();
   rigging(SIZE);
 }
 
